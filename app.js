@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const { graphqlHTTP } = require("express-graphql");  // exports valid middleware functions; takes incoming requests and funnels them through the GraphQL query parser
 const { buildSchema } = require("graphql");  // object destructuring - pull out the buildSchema property from "graphql" (function to define GraphQL schema using template literals)
 const mongoose = require("mongoose");
+
 const Event = require("./models/event");
+const User = require("./models/users");
 
 // calls express imported from the express package to create an app object to use to start the node server etc
 const app = express();
@@ -23,11 +25,22 @@ app.use(
                 date: String!
             }
 
+            type User {
+                _id: ID!
+                email: String!
+                password: String
+            }
+
             input EventInput {
                 title: String!
                 description: String!
                 price: Float!
                 date: String!
+            }
+
+            input UserInput {
+                email: String!
+                password: String!
             }
         
             type RootQuery {
@@ -36,6 +49,7 @@ app.use(
 
             type RootMutation {
                 createEvent(eventInput: EventInput): Event
+                createUser(userInput: UserInput): User
             }
 
             schema {
@@ -53,7 +67,7 @@ app.use(
                     throw err;
                 }
             },
-            createEvent: (args) => {
+            createEvent: args => {
                 const event = new Event({
                     title: args.eventInput.title,
                     description: args.eventInput.description,
@@ -70,6 +84,13 @@ app.use(
                         console.log(err);
                         throw err;
                     });
+            },
+            createUser: args => {
+                const user = new User({
+                    // TODO: stopped here at 10:37 part 6
+                    email: args.userInput.email,
+                    password: args.userInput.password
+                })
             }
         },
         graphiql: true
