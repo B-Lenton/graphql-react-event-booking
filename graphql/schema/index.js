@@ -1,4 +1,11 @@
-const { buildSchema } = require("graphql"); // object destructuring - pull out the buildSchema property from "graphql" (function to define GraphQL schema using template literals)
+const { buildSchema } = require("graphql"); // object destructuring - pull out the buildSchema property from "graphql"
+
+// Defining GraphQL schema using template literals - there are alternatives.
+
+// Using JSON Web Token for user auth because of the decoupled front & back end (therefore not using a session - server doesn't care about the client)...
+// Pass this token to the client, which it stores and attaches to requests...
+// Can then validate this token on the server
+
 // TODO: add bookings field to users and events
 module.exports = buildSchema(`
 type Booking {
@@ -25,6 +32,12 @@ type User {
     createdEvents: [Event!]
 }
 
+type AuthData {
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+}
+
 input EventInput {
     title: String!
     description: String!
@@ -40,6 +53,7 @@ input UserInput {
 type RootQuery {
     events: [Event!]!
     bookings: [Booking!]!
+    login(email: String!, password: String!): AuthData!
 }
 
 type RootMutation {

@@ -24,6 +24,7 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.8.0",
     "graphql-type-json": "^0.3.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.7",
     "mongoose-type-email": "^1.1.2"
   },

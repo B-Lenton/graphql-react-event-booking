@@ -5,11 +5,14 @@ const mongoose = require("mongoose");
 
 const graphQlSchema = require("./graphql/schema/index");
 const graphQlResolvers = require("./graphql/resolvers/index");
+const isAuth = require("./middleware/is-auth")
 
 // calls express imported from the express package to create an app object to use to start the node server etc
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(isAuth);
 
 // define API endpoint and middleware (pass in javascript object to configure our GraphQL API)
 app.use(
