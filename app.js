@@ -27,7 +27,7 @@ app.use(
 // connecting app to database (using Mongoose and MongoDB Atlas)
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.ppjrt.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
     .then(() => {
-        app.listen(3000);
+        app.listen(8000);
     })
     .catch(err => {
         console.log(err);
