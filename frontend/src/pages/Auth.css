@@ -12,6 +12,7 @@
 
 .form-control label {
     margin-bottom: 0.5rem;
+    color: #000;
 }
 
 .form-control input {
