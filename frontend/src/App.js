@@ -40,10 +40,10 @@ class App extends Component {
                         <main className="main-content">
                             <Switch>
                                 {this.state.token && (
-                                    <React.Fragment>
                                         <Redirect from="/" to="/events" exact />
+                                )}
+                                {this.state.token && (
                                         <Redirect from="/auth" to="/events" exact />
-                                    </React.Fragment>
                                 )}
                                 {!this.state.token && (
                                     <Route path="/auth" component={AuthPage} />
