@@ -8,6 +8,7 @@
     padding: 0 1rem;
     display: flex;
     align-items: center;
+    color: rgb(233, 255, 252);
   }
 
 .main-navigation__logo h1 {
@@ -16,7 +17,10 @@
 }
 
 .main-navigation__items {
-    margin-left: 1.5rem;
+    margin: 0 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .main-navigation__items ul {
@@ -24,21 +28,31 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 .main-navigation__items li {
     margin: 0 1rem;
 }
 
-.main-navigation__items a {
+.main-navigation__items a,
+.main-navigation__items button {
     text-decoration: none;
     color: rgb(233, 255, 252);
     padding: .5em;
+    border: none;
+    font: inherit;
+    background: transparent;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0;
 }
 
 .main-navigation__items a:hover,
 .main-navigation__items a:active,
-.main-navigation__items a.active {
+.main-navigation__items a.active,
+.main-navigation__items button:hover,
+.main-navigation__items button:active {
     color: rgb(233, 255, 252);
     background-color: #e99f01;
     border-radius: .5em;
