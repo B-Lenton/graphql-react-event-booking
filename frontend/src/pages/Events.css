@@ -8,19 +8,3 @@
     max-width: 80%;
     box-shadow: 0 0 3px 3px #1180ff;
 }
-
-.events__list {
-    width: 40rem;
-    max-width: 90%;
-    margin: 2rem auto;
-    list-style: none;
-    padding: 0;
-}
-
-.events__list-item {
-    margin: 2rem 0;
-    padding: 1rem;
-    /* border: 1px solid #1180ff; */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    
-}
